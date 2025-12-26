@@ -1,0 +1,24 @@
+{
+  "manifest_version": 1,
+  "name": "Keep_aliver",
+  "version": "1.0.0",
+  "description": "提供timeup kuma被动保活的功能 适合docker等不方便穿透端口的环境",
+  "license": "MIT",
+  "homepage_url": "https://github.com/ThelevenFD/MahiroAdapter",
+  "repository_url": "https://github.com/ThelevenFD/MahiroAdapter",
+  "keywords": ["uptime"],
+  "categories": ["Utility Tools"],
+  "default_locale": "zh-CN",
+  "locales_path": "_locales",
+  "author": {
+    "name": "elevenfd"
+  },
+  "host_application": {
+    "min_version": "0.10.0",
+    "max_version": ""
+  },
+  "plugin_info": {
+    "is_built_in": false,
+    "plugin_type": "general"
+  }
+}
