@@ -1,9 +1,11 @@
 import asyncio
 from httpx import AsyncClient
 from src.common.logger import get_logger
+from src.plugin_system import register_plugin
 from src.plugin_system.base.base_plugin import BasePlugin
 from src.plugin_system.base.config_types import ConfigField
 
+@register_plugin
 class Plugin(BasePlugin):
     plugin_name = "keep_alive"
     enable_plugin = True
@@ -22,7 +24,7 @@ class Plugin(BasePlugin):
 }
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        
+
         global keep_alive_url, timeout, logger, interval
         logger = get_logger(self.plugin_name)
         keep_alive_url = self.get_config("plugin.keep_alive_url")
@@ -31,6 +33,10 @@ class Plugin(BasePlugin):
 
         if self.get_config("plugin.enabled"):
             asyncio.create_task(self.keep_alive())
+
+    def get_plugin_components(self):
+        return [
+        ]
 
     async def keep_alive(self):
         """bot保活"""
